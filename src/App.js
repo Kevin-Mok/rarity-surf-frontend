@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import './App.css';
@@ -46,9 +46,11 @@ function App() {
   return (
     <Router>
       <Route path="/:projSlug/:tokenIDSlug">
-        <div className="App">
-          <Token token={token}/>
+        <div className="w-max container rounded-lg mx-auto my-40">
           <TokenSearch onSearch={getToken}/>
+          <div className="App rounded-lg p-2">
+            <Token token={token}/>
+          </div>
         </div>
       </Route>
     </Router>

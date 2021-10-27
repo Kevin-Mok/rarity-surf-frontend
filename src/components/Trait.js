@@ -1,7 +1,10 @@
 const Trait = ({ trait }) => {
   const traitType = trait.traitType.name
   return (
-    <li>{traitType}: {trait.name}</li>
+    <li key={trait.name}>
+      <p className="inline font-semibold">{traitType}</p>
+      : {trait.name}
+    </li>
   )
 }
 
