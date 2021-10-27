@@ -12,12 +12,14 @@ function App() {
       tokenByNumber(projSlug: "${projSlug}", number: ${number}) {
         number
         imageUrl
+        rank
         traits {
           traitType {
             name
           }
           name
           rarity
+          score
         }
         score
       }
@@ -45,8 +47,8 @@ function App() {
 
   return (
     <Router>
-      <Route path="/:projSlug/:tokenIDSlug">
-        <div className="w-max container rounded-lg mx-auto my-40">
+      <Route path="/:projSlug/:tokenIDSlug?">
+        <div className="container rounded-lg text-lg w-max mx-auto my-40">
           <TokenSearch onSearch={getToken}/>
           <div className="App rounded-lg p-2">
             <Token token={token}/>

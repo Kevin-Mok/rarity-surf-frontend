@@ -9,7 +9,15 @@ const Token = ({ token }) => {
           <p className="inline font-semibold">Token ID</p>
           : #{token.number}
         </li>
-        <li>Traits
+        <li>
+          <p className="inline font-semibold">Rank</p>
+          : {token.rank}
+        </li>
+        <li>
+          <p className="inline font-semibold">Score</p>
+          : {token.score}
+        </li>
+        <li>Traits (in order of rarity)
           <ul className="list-disc pl-4">
             <Traits traits={token.traits}/>
           </ul> 

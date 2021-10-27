@@ -1,9 +1,9 @@
 const Trait = ({ trait }) => {
   const traitType = trait.traitType.name
   return (
-    <li key={trait.name}>
+    <li className="text-base" key={trait.name}>
       <p className="inline font-semibold">{traitType}</p>
-      : {trait.name}
+      : {trait.name} ({trait.rarity}%, {trait.score})
     </li>
   )
 }

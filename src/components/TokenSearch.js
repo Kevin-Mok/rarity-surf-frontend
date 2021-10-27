@@ -6,7 +6,9 @@ const TokenSearch = ({ onSearch }) => {
   let { projSlug, tokenIDSlug } = useParams();
 
   useEffect(() => {
-    onSearch(projSlug, tokenIDSlug)
+    if (tokenIDSlug) {
+      onSearch(projSlug, tokenIDSlug)
+    }
   }, []);
 
   const onSubmit = (e) => {
