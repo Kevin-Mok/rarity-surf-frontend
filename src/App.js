@@ -2,36 +2,36 @@ import logo from './logo.svg';
 import './App.css';
 
 import { useState, useEffect } from 'react'
-import Button from './components/Button'
+import TokenSearch from './components/TokenSearch'
 import Token from './components/Token'
 
 function App() {
-  const query = `query {
-    tokenByNumber(number: 0) {
-      number
-      imageUrl
-      traits {
-        traitType {
-          name
-        }
-        name
-        rarity
-      }
-      score
-    }
-  }`
-
   const [token, setToken] = useState()
 
-  // const getToken = (number) => {
-  const getToken = () => {
+  const getTokenQuery = (projName, number) => { return `query {
+      tokenByNumber(projName: "${projName}", number: ${number}) {
+        number
+        imageUrl
+        traits {
+          traitType {
+            name
+          }
+          name
+          rarity
+        }
+        score
+      }
+    }`
+  }
+
+  const getToken = (number) => {
     fetch('http://127.0.0.1:8000/graphql', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },
-      body: JSON.stringify({ query })
+      body: JSON.stringify({ query: getTokenQuery("The Sevens", number) })
     })
       .then(r => r.json())
       .then(data => {
@@ -43,7 +43,7 @@ function App() {
   return (
     <div className="App">
       <Token token={token}/>
-      <Button text="Update" onClick={getToken}/>
+      <TokenSearch text="Update" onSearch={getToken}/>
     </div>
   );
 }
