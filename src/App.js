@@ -37,8 +37,9 @@ function App() {
     })
       .then(r => r.json())
       .then(data => {
-        console.log('data returned:', data)
-        setToken(data.data.tokenByNumber)
+        const tokenData = data.data.tokenByNumber
+        console.log(tokenData)
+        setToken(tokenData)
       });
   }
 

@@ -1,14 +1,21 @@
+import Traits from './Traits'
+
 const Token = ({ token }) => {
   return (
   <ul>
     <li>#: {token.number}</li>
+    <ul>
+      <Traits traits={token.traits}/>
+    </ul> 
   </ul> 
   )
 }
 
 Token.defaultProps = {
-  // number: -1,
-  token: {number: -1},
+  token: {
+    number: -1, 
+    traits: [] 
+  },
 }
 
 export default Token
