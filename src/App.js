@@ -1,15 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-
 import { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import './App.css';
 import TokenSearch from './components/TokenSearch'
 import Token from './components/Token'
 
 function App() {
   const [token, setToken] = useState()
 
-  const getTokenQuery = (projName, number) => { return `query {
-      tokenByNumber(projName: "${projName}", number: ${number}) {
+  const getTokenQuery = (projSlug, number) => { return `query {
+      tokenByNumber(projSlug: "${projSlug}", number: ${number}) {
         number
         imageUrl
         traits {
@@ -24,14 +24,16 @@ function App() {
     }`
   }
 
-  const getToken = (number) => {
+  const getToken = (projSlug, number) => {
     fetch('http://127.0.0.1:8000/graphql', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },
-      body: JSON.stringify({ query: getTokenQuery("The Sevens", number) })
+      body: JSON.stringify({ 
+        query: getTokenQuery(projSlug, number)
+      })
     })
       .then(r => r.json())
       .then(data => {
@@ -41,10 +43,14 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Token token={token}/>
-      <TokenSearch text="Update" onSearch={getToken}/>
-    </div>
+    <Router>
+      <Route path="/:projSlug/:tokenIDSlug">
+        <div className="App">
+          <Token token={token}/>
+          <TokenSearch onSearch={getToken}/>
+        </div>
+      </Route>
+    </Router>
   );
 }
 

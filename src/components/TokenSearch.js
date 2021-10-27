@@ -1,7 +1,13 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useParams } from "react-router-dom";
 
 const TokenSearch = ({ onSearch }) => {
   const [tokenID, setTokenID] = useState('')
+  let { projSlug, tokenIDSlug } = useParams();
+
+  useEffect(() => {
+    onSearch(projSlug, tokenIDSlug)
+  }, []);
 
   const onSubmit = (e) => {
     e.preventDefault()
@@ -10,7 +16,7 @@ const TokenSearch = ({ onSearch }) => {
       return
     }
 
-    onSearch(tokenID)
+    onSearch(projSlug, tokenID)
 
     setTokenID('')
   }
