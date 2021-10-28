@@ -48,7 +48,7 @@ function App() {
   return (
     <Router>
       <Route path="/:projSlug/:tokenIDSlug?">
-        <div className="container rounded-lg text-lg w-max mx-auto my-40">
+        <div className="container rounded-lg text-lg w-max mx-auto my-24">
           <TokenSearch onSearch={getToken}/>
           <div className="App rounded-lg p-2">
             <Token token={token}/>

@@ -3,7 +3,7 @@ import Traits from './Traits'
 const Token = ({ token }) => {
   return (
     <div className="container flex justify-items-start">
-      <img className="object-contain w-52 m-5 rounded-lg float-left" src={token.imageUrl} alt="Token Image"/>
+      <img className="object-contain w-64 m-5 rounded-lg float-left" src={token.imageUrl} alt="Token Image"/>
       <ul className="list-disc my-auto mx-2">
         <li>
           <p className="inline font-semibold">Token ID</p>

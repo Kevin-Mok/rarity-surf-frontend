@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react'
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 const TokenSearch = ({ onSearch }) => {
   const [tokenID, setTokenID] = useState('')
   let { projSlug, tokenIDSlug } = useParams();
+  const history = useHistory();
 
   useEffect(() => {
     if (tokenIDSlug) {
       onSearch(projSlug, tokenIDSlug)
     }
-  }, []);
+  }, [tokenIDSlug]);
 
   const onSubmit = (e) => {
     e.preventDefault()
@@ -18,6 +19,7 @@ const TokenSearch = ({ onSearch }) => {
       return
     }
 
+    history.push(`/${projSlug}/${tokenID}`);
     onSearch(projSlug, tokenID)
 
     setTokenID('')
