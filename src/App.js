@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState } from 'react'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import './App.css';
@@ -10,6 +10,9 @@ function App() {
 
   const getTokenQuery = (projSlug, number) => { return `query {
       tokenByNumber(projSlug: "${projSlug}", number: ${number}) {
+        tokenType {
+          name
+        }
         number
         imageUrl
         rank
@@ -27,7 +30,7 @@ function App() {
   }
 
   const getToken = (projSlug, number) => {
-    fetch('http://127.0.0.1:8000/graphql', {
+    return fetch('http://127.0.0.1:8000/graphql', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -40,8 +43,8 @@ function App() {
       .then(r => r.json())
       .then(data => {
         const tokenData = data.data.tokenByNumber
-        console.log(tokenData)
         setToken(tokenData)
+        return tokenData
       });
   }
 

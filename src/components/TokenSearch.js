@@ -6,11 +6,17 @@ const TokenSearch = ({ onSearch }) => {
   let { projSlug, tokenIDSlug } = useParams();
   const history = useHistory();
 
+  const appTitle = "Rarity Check"
+  const tokenIDIncrBy = 50
+
   useEffect(() => {
     if (tokenIDSlug) {
       onSearch(projSlug, tokenIDSlug)
+        .then(token => {
+          document.title = `${token.tokenType.name} #${token.number} - ${appTitle}`
+        })
     }
-  }, [tokenIDSlug]);
+  }, [projSlug, tokenIDSlug, onSearch]);
 
   const onSubmit = (e) => {
     e.preventDefault()
@@ -19,8 +25,14 @@ const TokenSearch = ({ onSearch }) => {
       return
     }
 
-    history.push(`/${projSlug}/${tokenID}`);
-    onSearch(projSlug, tokenID)
+    const incrTokenID = `${parseInt(tokenID) + tokenIDIncrBy}`
+
+    /* TODO: use ref to set token ID on submit
+     * useEffect to change URL
+    */
+
+    // history.push(`/${projSlug}/${tokenID}`);
+    history.push(`/${projSlug}/${incrTokenID}`);
 
     setTokenID('')
   }

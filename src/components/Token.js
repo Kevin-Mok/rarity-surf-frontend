@@ -39,6 +39,7 @@ const Token = ({ token }) => {
 Token.defaultProps = {
   token: {
     number: -1, 
+    imageUrl: '', 
     traits: [] 
   },
 }
