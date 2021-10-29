@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 html {
   background-color: #102040;
-  color: #cccccc;
+  color: #b5b5b5;
 }
 
 .App {
-  background-color: #1f3a57;
+  background-color: #0d5b89;
   max-height: 75%;
 }
 

@@ -31,7 +31,9 @@ function App() {
   }
 
   const getToken = (projSlug, number) => {
-    return fetch('http://127.0.0.1:8000/graphql', {
+    // return fetch('http://127.0.0.1:8000/graphql', {
+    // return fetch('http://192.168.0.10:8000/graphql', {
+    return fetch('http://72.141.103.195:8000/graphql', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

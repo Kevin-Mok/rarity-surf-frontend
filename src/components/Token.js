@@ -1,9 +1,11 @@
 import { useLocation, Link } from "react-router-dom";
 
+import './Token.css'
 import Traits from './Traits'
 
 const Token = ({ token }) => {
-  const domainName = "raritycheck.art"
+  // const domainName = "raritycheck.art"
+  const domainName = "rarity.surf"
 
   return (
     <div className="container flex justify-items-start">
@@ -26,7 +28,7 @@ const Token = ({ token }) => {
             <Traits traits={token.traits}/>
           </ul> 
         </li>
-        <li className="list-none pt-1 pl-16 text-sm text-blue-300 opacity-60 underline">
+        <li className="link list-none pt-1 pl-16 text-sm opacity-60 underline">
           <Link to={useLocation().pathname}>
             {`${domainName}${useLocation().pathname}`}
           </Link>
