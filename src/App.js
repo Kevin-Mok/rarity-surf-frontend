@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import './App.css';
+import NavBar from './components/NavBar'
 import TokenSearch from './components/TokenSearch'
 import Token from './components/Token'
 
@@ -51,7 +52,8 @@ function App() {
   return (
     <Router>
       <Route path="/:projSlug/:tokenIDSlug?">
-        <div className="container rounded-lg text-lg w-max mx-auto my-24">
+        <NavBar/>
+        <div className="container rounded-lg text-lg w-max mx-auto my-20">
           <TokenSearch onSearch={getToken}/>
           <div className="App rounded-lg p-2">
             <Token token={token}/>

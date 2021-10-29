@@ -10,13 +10,14 @@ const TokenSearch = ({ onSearch }) => {
   const tokenIDIncrBy = 50
 
   useEffect(() => {
+    // console.log("fetch");
     if (tokenIDSlug) {
       onSearch(projSlug, tokenIDSlug)
         .then(token => {
           document.title = `${token.tokenType.name} #${token.number} - ${appTitle}`
         })
     }
-  }, [projSlug, tokenIDSlug, onSearch]);
+  }, [projSlug, tokenIDSlug]);
 
   const onSubmit = (e) => {
     e.preventDefault()
@@ -42,14 +43,14 @@ const TokenSearch = ({ onSearch }) => {
       <div className='form-control inline'>
         <label>Token ID</label>
         <input
-          className='w-14 m-2 text-black'
+          className='w-14 m-2 rounded text-black'
           type='text'
           value={tokenID}
           onChange={(e) => setTokenID(e.target.value)}
         />
       </div>
       <input type='submit' value='Search Token' 
-        className='btn btn-block text-black' />
+        className='btn btn-block rounded text-black text-sm p-1 mb-2' />
     </form>
   )
 }

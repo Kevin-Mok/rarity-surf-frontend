@@ -1,0 +1,25 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Roboto:wght@700&family=Yellowtail&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto&family=Yellowtail&display=swap');
+
+.nav-bar {
+  background: #0b162d;
+}
+
+/* cursive  */
+/* .logo-text { */
+  /* color: #3eb7a0; */
+  /* font-family: 'Yellowtail'; */
+  /* font-weight: 400; */
+  /* top: 2px; */
+  /* margin-left: 7px; */
+  /* font-size: 1.25em; */
+/* } */
+
+.logo-text {
+  color: #3eb7a0;
+  font-family: 'Lato';
+  font-weight: 800;
+  top: 2px;
+  margin-left: 8px;
+  font-size: 1.2em;
+}
