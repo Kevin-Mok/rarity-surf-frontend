@@ -6,7 +6,7 @@ const TokenSearch = ({ onSearch }) => {
   let { projSlug, tokenIDSlug } = useParams();
   const history = useHistory();
 
-  const appTitle = "Rarity Check"
+  const appTitle = "Rarity Surf"
   const tokenIDIncrBy = 50
 
   useEffect(() => {
